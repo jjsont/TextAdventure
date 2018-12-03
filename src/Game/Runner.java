@@ -12,7 +12,15 @@ public class Runner {
     private static boolean gameOn = true;
 
     public static void main(String[] args)
-    {
+    {  Scanner in = new Scanner(System.in);
+
+        System.out.println("You wake up, and you realize you're on a beach.");
+        System.out.println("You looked around, and you see the ocean, a forest, and a broken raft");
+        System.out.println("'What's my name?,' you thought. What is your name?");
+        String playerName = in.nextLine();
+        System.out.println("Oh, you're " +playerName + "!");
+        System.out.println("Use W A S D to move and explore your surroundings.");
+
         Room[][] building = new Room[5][5];
 
         //Fill the building with normal rooms
@@ -37,7 +45,7 @@ public class Runner {
         //Setup player 1 and the input scanner
         Person player1 = new Person("FirstName", "FamilyName", 0,0);
         building[0][0].enterRoom(player1);
-        Scanner in = new Scanner(System.in);
+
         while(gameOn)
         {
             System.out.println("Where would you like to move? (Choose N, S, E, W)");
@@ -67,7 +75,7 @@ public class Runner {
     {
         move = move.toLowerCase().trim();
         switch (move) {
-            case "n":
+            case "D":
                 if (p.getxLoc() > 0)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -78,7 +86,7 @@ public class Runner {
                 {
                     return false;
                 }
-            case "e":
+            case "A":
                 if (p.getyLoc()< map[p.getyLoc()].length -1)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -90,7 +98,7 @@ public class Runner {
                     return false;
                 }
 
-            case "s":
+            case "S":
                 if (p.getxLoc() < map.length - 1)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -102,7 +110,7 @@ public class Runner {
                     return false;
                 }
 
-            case "w":
+            case "W":
                 if (p.getyLoc() > 0)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
