@@ -14,12 +14,13 @@ public class Runner {
     public static void main(String[] args)
     {  Scanner in = new Scanner(System.in);
 
-        System.out.println("You wake up, and you realize you're on a beach.");
-        System.out.println("You looked around, and you see the ocean, a forest, and a broken raft");
-        System.out.println("'What's my name?,' you thought. What is your name?");
+        System.out.println("You are a hero on an adventure");
+        System.out.println("You received a goblin slaying quest and so, you went to the cave in which they're dwelling.");
+        System.out.println("Brave hero, what is your name?");
         String playerName = in.nextLine();
-        System.out.println("Oh, you're " +playerName + "!");
+        System.out.println("The history books shall know you as " +playerName + "!");
         System.out.println("Use W A S D to move and explore your surroundings.");
+        System.out.println("Your items are: torch, sword, food, water");
 
         Room[][] building = new Room[5][5];
 
@@ -37,9 +38,6 @@ public class Runner {
         int y = (int)(Math.random()*building.length);
         building[x][y] = new WinningRoom(x, y);
 
-        //Create a random wrestling room.
-        int q = (int)(Math.random()*building.length);
-        int w= (int)(Math.random()*building.length);
 
 
         //Setup player 1 and the input scanner
