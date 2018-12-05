@@ -1,6 +1,7 @@
 package Game;
 
 import People.Person;
+import Rooms.CaveEntrance;
 import Rooms.Room;
 import Rooms.WinningRoom;
 
@@ -10,6 +11,7 @@ public class Runner {
 
 
     private static boolean gameOn = true;
+    private static boolean tooDark = true;
 
     public static void main(String[] args)
     {  Scanner in = new Scanner(System.in);
@@ -38,11 +40,38 @@ public class Runner {
         int y = (int)(Math.random()*building.length);
         building[x][y] = new WinningRoom(x, y);
 
+        int w = 0;
+        int q = 0;
+        building[w][q] = new CaveEntrance(0, 0);
+
 
 
         //Setup player 1 and the input scanner
         Person player1 = new Person("FirstName", "FamilyName", 0,0);
         building[0][0].enterRoom(player1);
+
+
+        while(tooDark)
+        {
+            String i= in.nextLine();
+            if(i.equals("use torch")) {
+                System.out.println("You lit up your torch and cleared away the darkness");
+                tooDark= false;
+        }
+            else if(i.equals("light torch")) {
+                System.out.println("You lit up your torch and cleared away the darkness");
+                tooDark= false;
+            }
+            else if(i.equals("torch")) {
+                System.out.println("You lit up your torch and cleared away the darkness");
+                tooDark= false;
+            }
+            else {
+                System.out.println("It's too dark. Check your inventory to see if you have anything to use");
+                tooDark= true;
+            }
+        }
+
 
         while(gameOn)
         {
@@ -73,7 +102,7 @@ public class Runner {
     {
         move = move.toLowerCase().trim();
         switch (move) {
-            case "D":
+            case "e":
                 if (p.getxLoc() > 0)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -84,7 +113,7 @@ public class Runner {
                 {
                     return false;
                 }
-            case "A":
+            case "w":
                 if (p.getyLoc()< map[p.getyLoc()].length -1)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -96,7 +125,7 @@ public class Runner {
                     return false;
                 }
 
-            case "S":
+            case "s":
                 if (p.getxLoc() < map.length - 1)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -108,7 +137,7 @@ public class Runner {
                     return false;
                 }
 
-            case "W":
+            case "n":
                 if (p.getyLoc() > 0)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
