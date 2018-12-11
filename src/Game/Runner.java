@@ -22,9 +22,10 @@ public class Runner {
         String playerName = in.nextLine();
         System.out.println("The history books shall know you as " +playerName + "!");
         System.out.println("Use N S E W to move and explore your surroundings.");
-        System.out.println("Your items are: torch, sword, food, water");
+        System.out.println("Your items are: torch, sword, food, shield");
 
         Room[][] building = new Room[5][5];
+        Board map= new Board (5,5, building);
 
         //Fill the building with normal rooms
         for (int x = 0; x<building.length; x++)
@@ -84,13 +85,13 @@ public class Runner {
             if(validMove(move, player1, building))
             {
                 System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+                map.print();
 
             }
             else {
-                System.out.println("Please choose a valid move.");
+                System.out.println("It appears you can no longer continue on this direction.");
             }
-            Board map= new Board (5,5, building);
-            map.print();
+
 
 
         }
