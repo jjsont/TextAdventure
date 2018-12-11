@@ -33,4 +33,11 @@ public class Room {
         occupant = null;
     }
 
+
+    public String toString() {
+        String brack = "";
+        brack= brack + "[ ]";
+        return brack;
+    }
+
 }

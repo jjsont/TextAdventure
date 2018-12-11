@@ -36,4 +36,11 @@ public class CaveEntrance extends Room
     {
         occupant = null;
     }
+
+    @Override
+    public String toString() {
+        String brack = "";
+        brack= brack + "[ ]";
+        return brack;
+    }
 }

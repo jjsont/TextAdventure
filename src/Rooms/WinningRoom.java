@@ -25,5 +25,12 @@ public class WinningRoom extends Room
         Runner.gameOff();
     }
 
+    @Override
+    public String toString() {
+        String brack = "";
+        brack= brack + "[ ]";
+        return brack;
+    }
+
 
 }

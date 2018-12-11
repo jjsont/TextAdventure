@@ -21,7 +21,7 @@ public class Runner {
         System.out.println("Brave hero, what is your name?");
         String playerName = in.nextLine();
         System.out.println("The history books shall know you as " +playerName + "!");
-        System.out.println("Use W A S D to move and explore your surroundings.");
+        System.out.println("Use N S E W to move and explore your surroundings.");
         System.out.println("Your items are: torch, sword, food, water");
 
         Room[][] building = new Room[5][5];
@@ -49,6 +49,10 @@ public class Runner {
         //Setup player 1 and the input scanner
         Person player1 = new Person("FirstName", "FamilyName", 0,0);
         building[0][0].enterRoom(player1);
+
+
+
+
 
 
         while(tooDark)
@@ -85,11 +89,15 @@ public class Runner {
             else {
                 System.out.println("Please choose a valid move.");
             }
+            Board map= new Board (5,5, building);
+            map.print();
 
 
         }
         in.close();
     }
+
+
 
     /**
      * Checks that the movement chosen is within the valid game map.
