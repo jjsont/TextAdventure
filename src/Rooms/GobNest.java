@@ -1,15 +1,12 @@
 package Rooms;
 
-import Game.Runner;
 import People.Person;
 
-import java.util.Scanner;
-
-public class CaveEntrance extends Room
+public class GobNest extends Room
 {
 
-    public CaveEntrance(int q, int w) {
-        super(q, w);
+    public GobNest(int x1, int x2) {
+        super(x1, x2);
     }
 
 
@@ -18,8 +15,8 @@ public class CaveEntrance extends Room
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("You entered the cave entrance. It is very dark inside and you can't see very well.");
-        System.out.println("You should do something about the darkness.");
+        System.out.println("You noticed a strong stench. You look around and see that there's goblin droppings around.");
+        System.out.println("Hm...check for goblins?");
 
     }
 

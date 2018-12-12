@@ -28,7 +28,10 @@ public class WinningRoom extends Room
     @Override
     public String toString() {
         String brack = "";
-        brack= brack + "[ ]";
+        brack = brack + "[ ]";
+        if (occupant != null) {
+            return "[x}";
+        }
         return brack;
     }
 

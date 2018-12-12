@@ -111,7 +111,7 @@ public class Runner {
     {
         move = move.toLowerCase().trim();
         switch (move) {
-            case "e":
+            case "n":
                 if (p.getxLoc() > 0)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -146,7 +146,7 @@ public class Runner {
                     return false;
                 }
 
-            case "n":
+            case "e":
                 if (p.getyLoc() > 0)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
