@@ -1,9 +1,10 @@
 package Game;
 
+// Jason Tan
 import People.Person;
 import Rooms.CaveEntrance;
+import Rooms.GobNest;
 import Rooms.Room;
-import Rooms.WinningRoom;
 
 import java.util.Scanner;
 
@@ -13,44 +14,44 @@ public class Runner {
     private static boolean gameOn = true;
     private static boolean tooDark = true;
 
-    public static void main(String[] args)
-    {  Scanner in = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
 
         System.out.println("You are a hero on an adventure");
         System.out.println("You received a goblin slaying quest and so, you went to the cave in which they're dwelling.");
         System.out.println("Brave hero, what is your name?");
         String playerName = in.nextLine();
-        System.out.println("The history books shall know you as " +playerName + "!");
+        System.out.println("The history books shall know you as " + playerName + "!");
         System.out.println("Use N S E W to move and explore your surroundings.");
         System.out.println("Your items are: torch, sword, food, shield");
+        System.out.println("You can heal by eating food. You can choose to attack with your sword(limited uses). Your shield disintegrates after being hit once.");
+        System.out.println("You need to kill the Goblin King in order to win.");
 
         Room[][] building = new Room[5][5];
-        Board map= new Board (5,5, building);
+        Board map = new Board(5, 5, building);
 
         //Fill the building with normal rooms
-        for (int x = 0; x<building.length; x++)
-        {
-            for (int y = 0; y < building[x].length; y++)
-            {
-                building[x][y] = new Room(x,y);
+        for (int x = 0; x < building.length; x++) {
+            for (int y = 0; y < building[x].length; y++) {
+                building[x][y] = new Room(x, y);
             }
         }
 
         //Create a random winning room.
-        int x = (int)(Math.random()*building.length);
-        int y = (int)(Math.random()*building.length);
-        building[x][y] = new WinningRoom(x, y);
+        int x1 = (int) (Math.random() * building.length);
+        int y2 = (int) (Math.random() * building.length);
+        building[x1][y2] = new GobNest(x1, y2);
 
         int w = 0;
         int q = 0;
         building[w][q] = new CaveEntrance(0, 0);
 
 
-
         //Setup player 1 and the input scanner
-        Person player1 = new Person("FirstName", "FamilyName", 0,0);
+        Person player1 = new Person("FirstName", "FamilyName", 0, 0);
         building[0][0].enterRoom(player1);
-
 
 
 
