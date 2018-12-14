@@ -1,6 +1,7 @@
 package Game;
 
 // Jason Tan
+import Items.Torch;
 import People.Person;
 import Rooms.CaveEntrance;
 import Rooms.GobNest;
@@ -18,6 +19,8 @@ public class Runner {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
+        Torch torch= new Torch("torch",)
+
 
         System.out.println("You are a hero on an adventure");
         System.out.println("You received a goblin slaying quest and so, you went to the cave in which they're dwelling.");
@@ -29,8 +32,8 @@ public class Runner {
         System.out.println("You can heal by eating food. You can choose to attack with your sword(limited uses). Your shield disintegrates after being hit once.");
         System.out.println("You need to kill the Goblin King in order to win.");
 
-        Room[][] building = new Room[5][5];
-        Board map = new Board(5, 5, building);
+        Room[][] building = new Room[6][6];
+        Board map = new Board(6, 6, building);
 
         //Fill the building with normal rooms
         for (int x = 0; x < building.length; x++) {
@@ -39,7 +42,7 @@ public class Runner {
             }
         }
 
-        //Create a random winning room.
+        //Create a goblin nest.
         int x1 = (int) (Math.random() * building.length);
         int y2 = (int) (Math.random() * building.length);
         building[x1][y2] = new GobNest(x1, y2);

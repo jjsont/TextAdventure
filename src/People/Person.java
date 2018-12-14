@@ -8,6 +8,9 @@ public class Person {
     String familyName;
     int xLoc, yLoc;
 
+    private int hp;
+    private static boolean damaged = false;
+
 
     public int getxLoc() {
         return xLoc;
@@ -32,6 +35,20 @@ public class Person {
         this.xLoc = xLoc;
         this.yLoc = yLoc;
     }
+
+    public Person (int hp) {
+        this.hp = hp;
+    }
+
+    public int getDmg(int dmg) {
+        if(damaged = true) {
+            return this.hp - 1;
+        }
+
+        return this.hp;
+    }
+
+
 
 
 
