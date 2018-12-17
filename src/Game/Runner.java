@@ -39,6 +39,8 @@ public class Runner {
         Sword sword = new Sword("Rusty blade", 3);
         Shield shield= new Shield("Wooden shield", 1);
 
+
+
         System.out.println("You can heal by eating food. You can choose to attack with your sword(limited uses). Your shield disintegrates after being hit once.");
         System.out.println("You need to kill the Goblin King in order to win.");
 
@@ -62,6 +64,9 @@ public class Runner {
         int w = 0;
         int q = 0;
         building[w][q] = new CaveEntrance(0, 0);
+
+
+
 
 
         //Setup player 1 and the input scanner
