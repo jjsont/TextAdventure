@@ -5,7 +5,7 @@ public class Sword implements Uses{
     private int usages;
 
 
-    public Sword(String name) {
+    public Sword(String name, int usages) {
         this.name=name;
         this.usages=usages;
 

@@ -5,7 +5,7 @@ public class Food implements Uses{
     private int usages;
 
 
-    public Food(String name) {
+    public Food(String name, int usages) {
         this.name=name;
         this.usages=usages;
 

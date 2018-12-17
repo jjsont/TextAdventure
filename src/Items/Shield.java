@@ -5,7 +5,7 @@ public class Shield implements Uses{
     private int usages;
 
 
-    public Shield(String name) {
+    public Shield(String name,int usages) {
         this.name=name;
         this.usages=usages;
 

@@ -1,6 +1,9 @@
 package Game;
 
 // Jason Tan
+import Items.Food;
+import Items.Shield;
+import Items.Sword;
 import Items.Torch;
 import People.Person;
 import Rooms.CaveEntrance;
@@ -19,7 +22,6 @@ public class Runner {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        Torch torch= new Torch("torch",)
 
 
         System.out.println("You are a hero on an adventure");
@@ -29,6 +31,14 @@ public class Runner {
         System.out.println("The history books shall know you as " + playerName + "!");
         System.out.println("Use N S E W to move and explore your surroundings.");
         System.out.println("Your items are: torch, sword, food, shield");
+
+
+        //Items and their numbers of uses
+        Torch torch = new Torch ("Torch",1);
+        Food food= new Food("Food", 2);
+        Sword sword = new Sword("Rusty blade", 3);
+        Shield shield= new Shield("Wooden shield", 1);
+
         System.out.println("You can heal by eating food. You can choose to attack with your sword(limited uses). Your shield disintegrates after being hit once.");
         System.out.println("You need to kill the Goblin King in order to win.");
 
@@ -47,6 +57,8 @@ public class Runner {
         int y2 = (int) (Math.random() * building.length);
         building[x1][y2] = new GobNest(x1, y2);
 
+
+        //Creates a cave entrance
         int w = 0;
         int q = 0;
         building[w][q] = new CaveEntrance(0, 0);
@@ -59,7 +71,7 @@ public class Runner {
 
 
 
-
+        // Prevents user from moving until he uses the torch to clear up the darkness
         while(tooDark)
         {
             String i= in.nextLine();
@@ -81,7 +93,7 @@ public class Runner {
             }
         }
 
-
+        // When game is on, allow movement
         while(gameOn)
         {
             System.out.println("Where would you like to move? (Choose N, S, E, W)");

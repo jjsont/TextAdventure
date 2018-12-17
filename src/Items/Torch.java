@@ -5,7 +5,7 @@ public class Torch implements Uses{
     private int usages;
 
 
-    public Torch(String name) {
+    public Torch(String name, int usages) {
         this.name=name;
         this.usages=usages;
 
