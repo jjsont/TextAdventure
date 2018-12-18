@@ -1,5 +1,7 @@
 package Items;
 
+import People.Person;
+
 public class Torch implements Uses{
     private String name;
     private int usages;
@@ -20,5 +22,10 @@ public class Torch implements Uses{
     @Override
     public int numberOfUses() {
         return this.usages;
+    }
+
+    @Override
+    public void use(Person x) {
+        x.removeTorch(name);
     }
 }

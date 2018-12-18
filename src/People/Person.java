@@ -1,5 +1,10 @@
 package People;
 
+import Gobbos.SkinnyGoblin;
+
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * Person represents the player as they move through the game.
  */
@@ -8,15 +13,20 @@ public class Person {
     String familyName;
     int xLoc, yLoc;
     /**
-     * Constructs hp
+     * Constructs hp and attack
      */
     private int hp;
+    private int attack;
+    private List<String> food;
+    private List<String> Sword;
+    private List<String> torch;
 
     /**
-     * Sets user hp to 8
+     * Sets user hp
      */
     public Person() {
-        this.hp = 8;
+        this.hp = 100;
+        this.attack=20;
     }
 
     /**
@@ -30,6 +40,10 @@ public class Person {
 
     public int getHp() {
         return this.hp;
+    }
+
+    public int getAttack() {
+        return this.attack;
     }
 
     public int getxLoc() {
@@ -60,30 +74,32 @@ public class Person {
         this.hp = hp;
     }
 
-    /**
-     * Each time user gets hit, deduct 1 hp
-     *
-     * @return Health - 1
-     */
-    public int getDmg() {
-        this.hp -= 1;
-        return hp;
+
+
+    public void removeHealth(int attack) {
+        this.hp -= attack;
     }
 
-    /**
-     * Each time user eats food, add 1 hp
-     *
-     * @return Health + 1
-     */
-    public int foodHeal() {
-        this.hp += 1;
-        return hp;
+    public void foodHeal(int i) {
+        this.hp += 20;
     }
-}
 
+    public void removeFood(String name) {
+        this.food.remove(name);
+    }
 
+    public void addFood(String name) {
+        food.add(name);
+    }
 
+    public void removeTorch(String name) {
+        this.torch.remove(name);
+    }
 
+    public void attack() {
+    }
 
+    public void attack(int attack) {
 
+    }
 }

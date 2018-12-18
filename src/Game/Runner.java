@@ -2,8 +2,6 @@ package Game;
 
 // Jason Tan
 import Items.Food;
-import Items.Shield;
-import Items.Sword;
 import Items.Torch;
 import People.Person;
 import Rooms.CaveEntrance;
@@ -17,6 +15,7 @@ public class Runner {
 
     private static boolean gameOn = true;
     private static boolean tooDark = true;
+    private static boolean inNest= false;
 
 
     public static void main(String[] args) {
@@ -30,19 +29,16 @@ public class Runner {
         String playerName = in.nextLine();
         System.out.println("The history books shall know you as " + playerName + "!");
         System.out.println("Use N S E W to move and explore your surroundings.");
-        System.out.println("Your items are: torch, sword, food, shield");
+        System.out.println("Your items are: torch, sword, and food. To use them, put a verb before the item. For example: 'use/light torch'");
+        System.out.println("You need to kill the Goblin King in order to win.");
+
 
 
         //Items and their numbers of uses
         Torch torch = new Torch ("Torch",1);
         Food food= new Food("Food", 2);
-        Sword sword = new Sword("Rusty blade", 3);
-        Shield shield= new Shield("Wooden shield", 1);
 
 
-
-        System.out.println("You can heal by eating food. You can choose to attack with your sword(limited uses). Your shield disintegrates after being hit once.");
-        System.out.println("You need to kill the Goblin King in order to win.");
 
         Room[][] building = new Room[6][6];
         Board map = new Board(6, 6, building);
@@ -55,9 +51,9 @@ public class Runner {
         }
 
         //Create a goblin nest.
-        int x1 = (int) (Math.random() * building.length);
-        int y2 = (int) (Math.random() * building.length);
-        building[x1][y2] = new GobNest(x1, y2);
+        int o = 3;
+        int p = 3;
+        building[o][p] = new GobNest(o,p);
 
 
         //Creates a cave entrance
@@ -114,7 +110,6 @@ public class Runner {
             }
 
 
-
         }
         in.close();
     }
@@ -143,7 +138,7 @@ public class Runner {
                 {
                     return false;
                 }
-            case "w":
+            case "e":
                 if (p.getyLoc()< map[p.getyLoc()].length -1)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
@@ -167,7 +162,7 @@ public class Runner {
                     return false;
                 }
 
-            case "e":
+            case "w":
                 if (p.getyLoc() > 0)
                 {
                     map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
