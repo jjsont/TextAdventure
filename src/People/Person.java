@@ -24,10 +24,6 @@ public class Person {
     /**
      * Sets user hp
      */
-    public Person() {
-        this.hp = 100;
-        this.attack=20;
-    }
 
     /**
      * Initializes the hp
@@ -67,6 +63,8 @@ public class Person {
         this.familyName = familyName;
         this.xLoc = xLoc;
         this.yLoc = yLoc;
+        this.hp=100;
+        this.attack=20;
     }
 
 
@@ -74,11 +72,6 @@ public class Person {
         this.hp = hp;
     }
 
-
-
-    public void removeHealth(int attack) {
-        this.hp -= attack;
-    }
 
     public void foodHeal(int i) {
         this.hp += 20;
@@ -101,5 +94,9 @@ public class Person {
 
     public void attack(int attack) {
 
+    }
+
+    public void removeHealth() {
+        this.hp -=attack;
     }
 }

@@ -1,17 +1,17 @@
 package Rooms;
 
 import Game.Runner;
-import Gobbos.SkinnyGoblin;
+import Gobbos.BamboozledGoblin;
 import People.Person;
 import java.util.Scanner;
 
-public class GobNest extends Room
+public class GobRoom extends Room
 {
-    SkinnyGoblin Skinny;
+    BamboozledGoblin Bamboozled;
 
-    public GobNest(int o, int p) {
-        super(o, p);
-        Skinny= new SkinnyGoblin();
+    public GobRoom(int t, int y) {
+        super(t, y);
+        Bamboozled= new BamboozledGoblin();
     }
 
 
@@ -20,15 +20,16 @@ public class GobNest extends Room
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("You noticed a strong stench. You look around and see that there's goblin droppings around.");
-        System.out.println("A malnourished goblin appears! It's looking at you with hungry eyes.");
+        System.out.println("You noticed a strong stench.");
+        System.out.println("A bamboozled goblin appears! It's angry at something and wants to direct its anger towards you.");
         System.out.println("Do something quick!");
         Scanner in= new Scanner(System.in);
         choice= in.nextLine();
         if(choice.equals("attack") || choice.equals("use sword") || choice.equals("attack goblin")){
             System.out.println("You slay the goblin!");
-            Skinny.attack(x);
+            Bamboozled.attack(x);
             x.removeHealth();
+            System.out.println(x.getHp());
             if(x.getHp()<=0) {
                 System.out.println("You died.");
                 Runner.gameOff();
@@ -38,9 +39,10 @@ public class GobNest extends Room
             }
 
         }
-        else if (choice.equals("run away") || choice.equals("run)") || choice.equals("flee")) {
+        else if (choice.equals("run away") || choice.equals("run)") || choice.equals("flee")){
             System.out.println("You ran away.");
         }
+
 
     }
 

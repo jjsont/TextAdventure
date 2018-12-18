@@ -4,9 +4,7 @@ package Game;
 import Items.Food;
 import Items.Torch;
 import People.Person;
-import Rooms.CaveEntrance;
-import Rooms.GobNest;
-import Rooms.Room;
+import Rooms.*;
 
 import java.util.Scanner;
 
@@ -60,6 +58,16 @@ public class Runner {
         int w = 0;
         int q = 0;
         building[w][q] = new CaveEntrance(0, 0);
+
+        //Creates a goblin room
+        int t= 0;
+        int y=5;
+        building[t][y]= new GobRoom(t,y);
+
+        //Creates goblin throne
+        int k=5;
+        int l=5;
+        building[k][l]= new GobThrone(k,l);
 
 
 

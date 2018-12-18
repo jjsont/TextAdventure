@@ -17,5 +17,7 @@ public abstract class Goblin {
     public void removeHealth(Person x) {
         this.hp -=x.getAttack();
     }
+
+
 }
 

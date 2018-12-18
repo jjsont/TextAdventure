@@ -1,17 +1,17 @@
 package Rooms;
 
 import Game.Runner;
-import Gobbos.SkinnyGoblin;
+import Gobbos.GoblinKing;
 import People.Person;
 import java.util.Scanner;
 
-public class GobNest extends Room
+public class GobThrone extends Room
 {
-    SkinnyGoblin Skinny;
+    GoblinKing King;
 
-    public GobNest(int o, int p) {
-        super(o, p);
-        Skinny= new SkinnyGoblin();
+    public GobThrone(int k, int l) {
+        super(k, l);
+        King= new GoblinKing();
     }
 
 
@@ -20,29 +20,28 @@ public class GobNest extends Room
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("You noticed a strong stench. You look around and see that there's goblin droppings around.");
-        System.out.println("A malnourished goblin appears! It's looking at you with hungry eyes.");
+        System.out.println("You noticed a strong stench. It's the Goblin King!");
+        System.out.println("This is it!");
         System.out.println("Do something quick!");
         Scanner in= new Scanner(System.in);
         choice= in.nextLine();
         if(choice.equals("attack") || choice.equals("use sword") || choice.equals("attack goblin")){
-            System.out.println("You slay the goblin!");
-            Skinny.attack(x);
+            System.out.println("You attack the Goblin King and have a fercious fight with it.");
+            King.attack(x);
             x.removeHealth();
             if(x.getHp()<=0) {
                 System.out.println("You died.");
                 Runner.gameOff();
             }
-            else {
-                System.out.println("This isn't the goblin you're looking for.");
-            }
+            System.out.println("The king fell. ");
+            Runner.gameOff();
 
         }
-        else if (choice.equals("run away") || choice.equals("run)") || choice.equals("flee")) {
+        else if (choice.equals("run away") || choice.equals("run)") || choice.equals("flee")){
             System.out.println("You ran away.");
-        }
 
-    }
+
+    }}
 
 
     public void leaveRoom(Person x)
