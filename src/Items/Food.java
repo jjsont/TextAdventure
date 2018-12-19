@@ -25,13 +25,11 @@ public class Food implements Uses{
     }
 
     public void use(Person x) {
-        x.foodHeal(100-x.getHp());
+        this.name=name;
+        x.foodHeal(20);
         x.removeFood(name);
     }
 
-    public void find(Person x) {
-        x.addFood(name);
-    }
 
 
 

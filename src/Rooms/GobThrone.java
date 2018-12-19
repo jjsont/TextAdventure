@@ -15,6 +15,10 @@ public class GobThrone extends Room
     }
 
 
+    /**
+     * Fight with goblin in room
+     * @param x the Person entering
+     */
     public void enterRoom(Person x) {
         String choice= "";
         occupant = x;
@@ -26,9 +30,10 @@ public class GobThrone extends Room
         Scanner in= new Scanner(System.in);
         choice= in.nextLine();
         if(choice.equals("attack") || choice.equals("use sword") || choice.equals("attack goblin")){
-            System.out.println("You attack the Goblin King and have a fercious fight with it.");
+            System.out.println("You attack the Goblin King and have a furious fight with it.");
             King.attack(x);
             x.removeHealth();
+            System.out.println(x.getHp());
             if(x.getHp()<=0) {
                 System.out.println("You died.");
                 Runner.gameOff();
@@ -49,6 +54,10 @@ public class GobThrone extends Room
         occupant = null;
     }
 
+    /**
+     * Prints out room with G in the middle
+     * @return Bracket with G in the middle
+     */
     @Override
     public String toString() {
         String brack = "";

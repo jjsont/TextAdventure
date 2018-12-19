@@ -1,5 +1,6 @@
 package Items;
 
+
 public abstract class Weapon {
     int attack;
     String name;

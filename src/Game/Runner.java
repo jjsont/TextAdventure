@@ -13,7 +13,6 @@ public class Runner {
 
     private static boolean gameOn = true;
     private static boolean tooDark = true;
-    private static boolean inNest= false;
 
 
     public static void main(String[] args) {
@@ -27,7 +26,7 @@ public class Runner {
         String playerName = in.nextLine();
         System.out.println("The history books shall know you as " + playerName + "!");
         System.out.println("Use N S E W to move and explore your surroundings.");
-        System.out.println("Your items are: torch, sword, and food. To use them, put a verb before the item. For example: 'use/light torch'");
+        System.out.println("Your items are: torch, sword and food. To use them, put a verb before the item. For example: 'use/light torch'");
         System.out.println("You need to kill the Goblin King in order to win.");
 
 

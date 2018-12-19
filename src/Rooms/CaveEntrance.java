@@ -23,12 +23,16 @@ public class CaveEntrance extends Room
 
     }
 
-
+    // Allows person to leave room
     public void leaveRoom(Person x)
     {
         occupant = null;
     }
 
+    /**
+     * Prints out the room as brackets, and a bracket with "x" in the middle if person is in it
+     * @return rooms as brackets
+     */
     @Override
     public String toString() {
         String brack = "";

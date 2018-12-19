@@ -14,7 +14,10 @@ public class GobRoom extends Room
         Bamboozled= new BamboozledGoblin();
     }
 
-
+    /**
+     * Fight with goblin in room
+     * @param x the Person entering
+     */
     public void enterRoom(Person x) {
         String choice= "";
         occupant = x;
@@ -52,6 +55,10 @@ public class GobRoom extends Room
         occupant = null;
     }
 
+    /**
+     * Prints out room with G in the middle
+     * @return Bracket with G in the middle
+     */
     @Override
     public String toString() {
         String brack = "";

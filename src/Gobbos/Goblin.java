@@ -7,13 +7,19 @@ public abstract class Goblin {
     int attack;
 
 
-
+    /**
+     * Attacks person
+     * @param x Person
+     */
     public void attack(Person x) {
-        x.attack(attack);
+        x.removeHealth();
     }
 
 
-
+    /**
+     * The damage the goblin takes from person
+     * @param x
+     */
     public void removeHealth(Person x) {
         this.hp -=x.getAttack();
     }

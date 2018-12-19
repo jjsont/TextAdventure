@@ -9,12 +9,20 @@ public class GobNest extends Room
 {
     SkinnyGoblin Skinny;
 
+    /**
+     * Loc of room
+     * @param o width of room
+     * @param p length of room
+     */
     public GobNest(int o, int p) {
         super(o, p);
         Skinny= new SkinnyGoblin();
     }
 
-
+    /**
+     * fight with goblin in room
+     * @param x the Person entering
+     */
     public void enterRoom(Person x) {
         String choice= "";
         occupant = x;
@@ -29,6 +37,7 @@ public class GobNest extends Room
             System.out.println("You slay the goblin!");
             Skinny.attack(x);
             x.removeHealth();
+            System.out.println(x.getHp());
             if(x.getHp()<=0) {
                 System.out.println("You died.");
                 Runner.gameOff();
@@ -44,12 +53,16 @@ public class GobNest extends Room
 
     }
 
-
+    //Lets person leave room
     public void leaveRoom(Person x)
     {
         occupant = null;
     }
 
+    /**
+     * Prints out room with G in the middle
+     * @return Bracket with G in the middle
+     */
     @Override
     public String toString() {
         String brack = "";
